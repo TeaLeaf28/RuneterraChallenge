@@ -2,33 +2,85 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>RRR</title>
+    <title>Runeterra Rainbow rhymes</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
   <body>
-    <h1>Runeterra Rainbow rhymes</h1>
-    <div>
-        Select your favorite color: <input type="color" id="myColor">
+    <div id='hexcolor-picker'>
+      <div>
+          <div>
+            Select your favorite hexcolor: <input type="color" v-model="hexcolor">
+          </div>
+          <div>
+            Or select a preset: <input type="radio" v-for="name in colorList">{{colorList.name}}</input>
+          </div>
+          <div>
+            Or click <button v-on:click="setRandHexColor()">here</button> to pick a random hexcolor
+          </div>
+          <div>
+            or input hex here: <input type="text" v-model="hexcolor">
+          </div>
+          <div>
+            hexcolor Selected: {{hexcolor}}
+          </div>
+      </div>
+      <div>
+
+      </div>
     </div>
-    <div>
-        Or pick a random: <button onclick="getRandomColor()">color</button>
-    </div>
-    <div>
-            <button onclick="getColor()">Make Deck</button>
-    </div>
-    <p id="demo"></p>
-    <script>
-            function getColor() {
-              var x = document.getElementById("myColor").value;
-              document.getElementById("demo").innerHTML = x;
-            }
-            function getRandomColor() {
+    <script type="text/javascript">
+      var hexcolorPicker = new Vue({
+        el: '#hexcolor-picker',
+        data:{
+          hexcolor: '#',
+          colorList: [
+            {hex: '#333', name: '', complete: false},
+            {hex: '#'}
+          ]
+        },
+        methods:{
+          setRandHexColor(){
             var letters = '0123456789ABCDEF';
-            var color = '#';
+            this.hexcolor ='#';
             for (var i = 0; i < 6; i++) {
-                color += letters[Math.floor(Math.random() * 16)];
+              this.hexcolor += letters[Math.floor(Math.random() * 16)];
             }
-            document.getElementById("demo").innerHTML = color;
+          },
+          SetChallenge(){
+            var closestColor = 0;
+            var minColorDiff = 9999;
+            for (var i = 0; i < this.colorList.length; i++) {
+              
             }
+          }
+        }
+      })
+
+      function getColorDiff(hexColor, listColor){
+        rgb = hexToRGB(hexColor);
+        RedDiff = Math.abs(hexColor.);
+        GreenDiff = 0;
+        BlueDiff = 0;
+        
+
+      }
+
+      function hexToRGB(h) {
+        //https://css-tricks.com/converting-color-spaces-in-javascript/
+        let r = 0, g = 0, b = 0;
+        var rgb = [r, g, b]
+        if (h.length == 4) {
+          r = "0x" + h[1] + h[1];
+          g = "0x" + h[2] + h[2];
+          b = "0x" + h[3] + h[3];
+        } else if (h.length == 7) {
+          r = "0x" + h[1] + h[2];
+          g = "0x" + h[3] + h[4];
+          b = "0x" + h[5] + h[6];
+        }
+        return rgb;
+      }
+            
     </script>
 </body>
 
