@@ -4,18 +4,35 @@
     <meta charset="utf-8">
     <title>Runeterra Rainbow rhymes</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
+    <header>
+      <h1>Runeterra Rainbow Rapper</h1>
+    </header>
     <div id='hexcolor-picker'>
       <div>
           <div>
-            Select your favorite hexcolor: <input type="color" v-model="hexcolor">
+            Select your favorite hexcolor:<label><input type="color" v-model="hexcolor" style="visibility: hidden"></label> 
           </div>
-          <div>
-            Or select a preset: <input type="radio" v-for="name in colorList">{{colorList.name}}</input>
+          <div class="preset-container">
+            Or select a preset color:
+            <div>
+                <button v-for="(color, index) in colorList" v-if="index > 11" @click = "setHexColor(index)" class="preset-button" :style="{ backgroundColor : color.hex}"></button>
+            </div> 
+            <div>
+                <button v-for="(color, index) in colorList" v-if="index > 7 && 12 > index" @click = "setHexColor(index)" class="preset-button" :style="{ backgroundColor : color.hex}"></button>
+            </div> 
+            <div>
+              <button v-for="(color, index) in colorList" v-if="index > 3 && 8 > index" @click = "setHexColor(index)" class="preset-button" :style="{ backgroundColor : color.hex, color : color.hex}"></button>
+            </div> 
+            <div>
+                <button v-for="(color, index) in colorList" v-if="4 > index" @click = "setHexColor(index)" class="preset-button" :style="{ backgroundColor : color.hex}"></button>
+            </div> 
           </div>
+          
           <div>
-            Or click <button v-on:click="setRandHexColor()">here</button> to pick a random hexcolor
+            Or click <button @click="setRandHexColor()">here</button> to pick a random hexcolor
           </div>
           <div>
             or input hex here: <input type="text" v-model="hexcolor">
@@ -28,60 +45,7 @@
 
       </div>
     </div>
-    <script type="text/javascript">
-      var hexcolorPicker = new Vue({
-        el: '#hexcolor-picker',
-        data:{
-          hexcolor: '#',
-          colorList: [
-            {hex: '#333', name: '', complete: false},
-            {hex: '#'}
-          ]
-        },
-        methods:{
-          setRandHexColor(){
-            var letters = '0123456789ABCDEF';
-            this.hexcolor ='#';
-            for (var i = 0; i < 6; i++) {
-              this.hexcolor += letters[Math.floor(Math.random() * 16)];
-            }
-          },
-          SetChallenge(){
-            var closestColor = 0;
-            var minColorDiff = 9999;
-            for (var i = 0; i < this.colorList.length; i++) {
-              
-            }
-          }
-        }
-      })
-
-      function getColorDiff(hexColor, listColor){
-        rgb = hexToRGB(hexColor);
-        RedDiff = Math.abs(hexColor.);
-        GreenDiff = 0;
-        BlueDiff = 0;
-        
-
-      }
-
-      function hexToRGB(h) {
-        //https://css-tricks.com/converting-color-spaces-in-javascript/
-        let r = 0, g = 0, b = 0;
-        var rgb = [r, g, b]
-        if (h.length == 4) {
-          r = "0x" + h[1] + h[1];
-          g = "0x" + h[2] + h[2];
-          b = "0x" + h[3] + h[3];
-        } else if (h.length == 7) {
-          r = "0x" + h[1] + h[2];
-          g = "0x" + h[3] + h[4];
-          b = "0x" + h[5] + h[6];
-        }
-        return rgb;
-      }
-            
-    </script>
+    <script src="main.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,23 @@
+label {
+    background: url(assets/240px-Blended_colour_wheel.svg.png);
+    height: 20%;
+    width: 20%;
+    position: fixed;
+  }
+
+div.preset{
+    border: 1px black;
+}
+.preset-button{
+    background-color: white;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 1px 1px;
+}
+.preset-button:hover{
+    background-color: white;
+}
