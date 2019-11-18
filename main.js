@@ -51,7 +51,7 @@ var hexcolorPicker = new Vue({
 
   function getColorDiff(hexColor, listColor){
     rgb = hexToRGB(hexColor);
-    ListRgb
+    ListRgb = hexToRGB(hexColor);
     RedDiff = Math.abs(rgb.r - ListRgb.r);
     GreenDiff = Math.abs(rgb.g - ListRgb.g);
     BlueDiff = Math.abs(rgb.b - ListRgb.b);

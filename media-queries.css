@@ -1,0 +1,117 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* window widths smaller than 1060px - the original container size + margins */
+@media screen and (max-width: 1060px) {
+	
+	/* switch from static 960px container to a fluid 90% container at smaller display sizes */
+	.container {
+		width: 90%;
+	}
+	
+	/* half containers (2-columns) don't work on small displays, change to 80% container centered on display */
+	.half_container {
+  		width: 80%;
+  		float: none;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	/* adjust button left and right padding so buttons don't wrap to 2nd row on smaller displays */
+	ul#menu li a.button {
+		padding: 20px 75px; 
+	}
+	
+	/* force embedded youtube video to shrink width with display size */
+	/* can't do anything about height */
+	iframe {
+       width: 100%;
+	}
+	
+	/* shrink splash area for smaller displays */
+	#splash {
+		height: 748px;
+		background-size: 1060px;
+	}	
+	
+	/* keep the title from being pushed down off the display */
+	#title-page{
+  		padding-top: 200px; 
+	}
+	#title-page h1 {
+  		font-family: 'Amaranth', sans-serif;
+  		font-size: 60px; 	
+	}
+	/* always use default font sizes for mobile devices */ 
+	/* this cancels the 14 px font in style.css */
+	p {
+		font-size: 1em; 
+	}
+	
+}
+
+/* window widths smaller than 760px - tablets */
+@media screen and (max-width: 767px) {
+	
+	/* adjust button left and right padding so buttons don't wrap to 2nd row on smaller displays */
+	ul#menu li a.button {
+		padding: 20px 32px; 
+	}
+	
+	/* make images 100% width to avoid awkward text wrapping */
+	img.responsive{
+		width: 100%;
+		height: auto;
+	}
+	
+	/* keep image in footer credits from adopting 100% width */
+	#credits img{
+  		width: 100px;	
+    }
+	
+	/* shrink splash area for smaller displays */
+	#splash {
+		height: 542px;
+		background-size: 767px;
+	}	
+	
+	/* keep the title from being pushed down off the display */
+	#title-page{
+  		padding-top: 40px; 
+	}
+	#title-page h1 {
+  		font-family: 'Amaranth', sans-serif;
+  		font-size: 50px; 	
+	}
+}
+
+/* window widths smaller than 480px - smartphones */
+@media screen and (max-width: 480px) {
+	
+	/* adjust button font size and left and right padding so buttons don't wrap to 2nd row on smaller displays */
+	ul#menu li a.button {
+		font-size: .9em;
+		padding: 20px 10px; 
+	}
+	
+	/* shrink splash area for smaller displays */
+	#splash {
+		height: 340px;
+		background-size: 480px;
+	}
+	
+	/* keep the title from being pushed down off the display */	
+	#title-page{
+  		padding-top: 20px; 
+	}
+	#title-page h1 {
+  		font-family: 'Amaranth', sans-serif;
+  		font-size: 30px; 	
+	}
+	#title-page img {
+		height: 0;
+		visibility:hidden;
+	}
+}
+
+

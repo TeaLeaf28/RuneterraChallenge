@@ -4,14 +4,32 @@
     <meta charset="utf-8">
     <title>Runeterra Rainbow rhymes</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link href="media-queries.css" rel="stylesheet" type="text/css"> 
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   </head>
   <body>
-    <header>
-      <h1>Runeterra Rainbow Rapper</h1>
-    </header>
-    <div id='hexcolor-picker'>
-      <div>
+    <section id="header">
+      <div class="container">
+          <div id="title-page">
+            <div class="container">
+                <h1>Runeterra Rainbow Rapper</h1>
+            </div> 
+          </div> 
+        <div id="navbar">
+          <div class="container">
+            <ul id="menu">
+            <li><a href="#colorpicker" class="nav-button">Color Deckmaker</a></li>
+            <li><a href="#rhymes" class="nav-button">Rhymes</a></li>
+            <li><a href="#howto" class="nav-button">How To</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="colorpicker">
+      <div id='hexcolor-picker'>
+        <div class="container">
           <div>
             Select your favorite hexcolor:<label><img src="assets/color-wheel.png" id="color-wheel"><input type="color" v-model="hexcolor"></img> </label>
           </div>
@@ -30,7 +48,6 @@
                 <button v-for="(color, index) in colorList" v-if="4 > index" @click = "setHexColor(index)" class="preset-button" :style="{ backgroundColor : color.hex}"></button>
             </div> 
           </div>
-          
           <div>
             Or click <button @click="setRandHexColor()">here</button> to pick a random hexcolor
           </div>
@@ -38,14 +55,11 @@
             or input hex here: <input type="text" v-model="hexcolor">
           </div>
           <div>
-            hexcolor Selected: {{hexcolor}}
+            <button :style="{'background-color': hexColor, color: hexColor}">Make Deck</button>
           </div>
+        </div>
       </div>
-      <div>
-
-      </div>
-    </div>
+    </section>
     <script src="main.js"></script>
-</body>
-
+  </body>
 </html>
