@@ -52,15 +52,20 @@
             Or click <button @click="setRandHexColor()">here</button> to pick a random hexcolor
           </div>
           <div>
-            or input hex here: <input type="text" v-model="hexcolor">
+            or input hex here: <input type="text" v-model="hexcolor" id="colorInput">
           </div>
           <div>
-            <button :style="{'background-color': hexColor, color: hexColor}">Make Deck</button>
+            <button :style="{'background-color': hexColor, color: hexColor}" onclick="buildDeck()">Make Deck</button>
+            <p></p>
           </div>
         </div>
       </div>
+      <div id="deckcolor-analyzer">
+        <input type="text" id="deckCodeInput">
+      </div>
     </section>
     <script src="js/main.js"></script>
+    <script src="Deck Builder/app.js"></script>
     <script src="js/rap.js"></script>
 </body>
 </html>
