@@ -49,15 +49,14 @@ var hexcolorPicker = new Vue({
     }
   })
 
-  function getColorDiff(hexColor, listColor){
-    rgb = hexToRGB(hexColor);
-    ListRgb = hexToRGB(hexColor);
-    RedDiff = Math.abs(rgb.r - ListRgb.r);
-    GreenDiff = Math.abs(rgb.g - ListRgb.g);
-    BlueDiff = Math.abs(rgb.b - ListRgb.b);
-    return RedDiff + GreenDiff + BlueDiff;
-
+var deckcolorAnalyzer = new Vue({
+  el:'deckcolor-analyzer',
+  data:{
+    deckCodeInput:''
+  },
+  methods:{
+    getDeckColors(){
+      return ['']
+    }
   }
-
-  
-        
+})
