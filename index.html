@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>Runeterra Rainbow rhymes</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <link rel="stylesheet" href="styles.css" type="text/css">
-    <link href="media-queries.css" rel="stylesheet" type="text/css"> 
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
+    <link href="css/media-queries.css" rel="stylesheet" type="text/css"> 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   </head>
   <body>
@@ -52,14 +52,25 @@
             Or click <button @click="setRandHexColor()">here</button> to pick a random hexcolor
           </div>
           <div>
-            or input hex here: <input type="text" v-model="hexcolor">
+            or input hex here: <input type="text" v-model="hexcolor" id="colorInput">
           </div>
           <div>
-            <button :style="{'background-color': hexColor, color: hexColor}">Make Deck</button>
+            <button :style="{'background-color': hexColor, color: hexColor}" onclick="buildDeck()">Make Deck</button>
+            <p></p>
           </div>
         </div>
       </div>
+      <div id="deckcolor-analyzer">
+        <input type="text" v-model="deckCodeInput" placeholder="deck code here">
+      </div>
     </section>
-    <script src="main.js"></script>
+    <section id="text">
+      <div id="deck-text">
+        <button>get text</button>
+      </div>
+    </section>
+    <script src="js/main.js"></script>
+    <script src="Deck Builder/app.js"></script>
+    <script src="js/rap.js"></script>
 </body>
 </html>
