@@ -60,3 +60,4 @@ var deckcolorAnalyzer = new Vue({
     }
   }
 })
+
