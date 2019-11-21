@@ -1,3 +1,11 @@
+var express = require('express');
+var router = express.Router();
+
+router.get('/', function (req, res) {
+  res.send('Wiki home page');
+})
+
+
 var hexcolorPicker = new Vue({
     el: '#hexcolor-picker',
     data:{
@@ -59,5 +67,19 @@ var deckcolorAnalyzer = new Vue({
       return ['']
     }
   }
+})
+
+var decktext = new Vue({
+  el:'deck-text',
+  data:{
+    deckCodeInput:'',
+    flavorText:[],
+  },
+  methods:{
+    getText(){
+      this.flavorText = new Array();
+    }
+  }
+
 })
 
